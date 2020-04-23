@@ -1,26 +1,28 @@
-package Tests;
+package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import PageObjects.AnalyticsPage;
-import PageObjects.BasePage;
-import PageObjects.GeneralSettingPage;
-import PageObjects.HomePage;
-import PageObjects.IQTemplatePage;
-import PageObjects.LoginPage;
-import PageObjects.PublishProjectPage;
-import PageObjects.ShareProjectPage;
-import PageObjects.StartPage;
 import io.qameta.allure.Description;
+import pageObjects.AnalyticsPage;
+import pageObjects.BasePage;
+import pageObjects.GeneralSettingPage;
+import pageObjects.HomePage;
+import pageObjects.IQTemplatePage;
+import pageObjects.LoginPage;
+import pageObjects.PublishProjectPage;
+import pageObjects.ShareProjectPage;
+import pageObjects.StartPage;
+import utilities.ReadDataFile;
 
-public class IQTemlapteTest extends BaseTest{
+public class IQTemlapteTest extends BaseTest {
 	String beforeSubmiss;
 	String beforeView;
-	@Test(description="")
+
+	@Test(description = "")
 
 	public void tc01_Template_IQ_Test() {
-		StartPage sp= new StartPage(driver);
+		StartPage sp = new StartPage(driver);
 		sp.clicklogn();
 		LoginPage lg = new LoginPage(driver);
 		sp.sleep(1000);
@@ -28,13 +30,13 @@ public class IQTemlapteTest extends BaseTest{
 		lg.fillpassWrd("Neli5077");
 		lg.clickLogn();
 		HomePage hm = new HomePage(driver);
-		hm.chooseWrkSpc("Boaz Multi project");
+		hm.chooseWrkSpc(ReadDataFile.readDataFile("WorkSpace"));
 		hm.chooseTabAndClick("All");
 		hm.clickProjectAnalytics("Boaz IQ Quiz");
-		AnalyticsPage ap=new AnalyticsPage(driver);
+		AnalyticsPage ap = new AnalyticsPage(driver);
 		ap.clickViewBtn();
-		IQTemplatePage itp= new IQTemplatePage(driver);
-		String mainWin=itp.getWindowMainTab();
+		IQTemplatePage itp = new IQTemplatePage(driver);
+		String mainWin = itp.getWindowMainTab();
 		itp.switchtoLastTab();
 		itp.clickStartFirstPage();
 		itp.chooseFirstAns();
@@ -47,10 +49,8 @@ public class IQTemlapteTest extends BaseTest{
 		itp.chooseEightAns("14");
 		itp.chooseNineAns("Carpenter");
 		itp.chooseTenAns("26");
-		String finalScore=itp.getFinalScore();
-		
-		Assert.assertEquals(finalScore,"90");
-		
-	}
+		String finalScore = itp.getFinalScore();
 
+		Assert.assertEquals(finalScore, "90");
+	}
 }

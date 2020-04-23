@@ -1,8 +1,9 @@
-package Tests;
+package tests;
 
 import org.testng.annotations.BeforeClass;
-import Utilities.ReadDataFile;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utilities.ReadDataFile;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,19 +14,19 @@ import org.testng.annotations.AfterClass;
 
 public class BaseTest {
 	WebDriver driver;
-	
+
 	@BeforeClass
 	public void setup(ITestContext testContext) {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		testContext.setAttribute("WebDriver",this.driver);
+		testContext.setAttribute("WebDriver", this.driver);
 		driver.get(ReadDataFile.readDataFile("url"));
 
 	}
 
-	@AfterClass
+	//@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}
