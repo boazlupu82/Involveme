@@ -7,7 +7,13 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="tests.LoginTest" />
+			<class name="tests.TemplateCreatorTest" />
+			<class name="tests.IQTemlapteTest" />
+			<class name="tests.PersonaltyTemlapteTest" />
 			<class name="tests.CalcTemlapteTest" />
+			<class name="tests.FormContactsCreatProjectTest" />
+			<class name="tests.EditProjectTest" />
+			<class name="tests.QuizTemplateNStatistycsTest" />
 			<class name="tests.BaseTest" />
 		</classes>
 	</test> <!-- Test -->

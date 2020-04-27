@@ -26,7 +26,7 @@ public class BaseTest {
 
 	}
 
-	//@AfterClass
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}
