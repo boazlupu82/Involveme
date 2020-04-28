@@ -35,7 +35,7 @@ public class LoginTest extends BaseTest {
 		lp.fillpassWrd("12345678");
 		lp.clickLogn();
 		String actualMsg = lp.getAlertMsg();
-		Assert.assertEquals(actualMsg, "These credentials do not match our records.");
+		Assert.assertEquals(actualMsg, "These credentials do not match our records.////");
 	}
 
 	@Severity(SeverityLevel.CRITICAL)
