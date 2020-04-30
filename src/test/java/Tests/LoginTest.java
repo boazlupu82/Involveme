@@ -1,6 +1,5 @@
 package tests;
 
-import org.openqa.selenium.support.ui.Sleeper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
